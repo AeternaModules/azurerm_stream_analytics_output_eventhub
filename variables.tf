@@ -17,20 +17,24 @@ Optional:
     - partition_key
     - property_columns
     - shared_access_policy_key
+    - shared_access_policy_key_key_vault_id (alternative to shared_access_policy_key - read from Key Vault instead)
+    - shared_access_policy_key_key_vault_secret_name (alternative to shared_access_policy_key - read from Key Vault instead)
     - shared_access_policy_name
 EOT
 
   type = map(object({
-    eventhub_name             = string
-    name                      = string
-    resource_group_name       = string
-    servicebus_namespace      = string
-    stream_analytics_job_name = string
-    authentication_mode       = optional(string) # Default: "ConnectionString"
-    partition_key             = optional(string)
-    property_columns          = optional(list(string))
-    shared_access_policy_key  = optional(string)
-    shared_access_policy_name = optional(string)
+    eventhub_name                                  = string
+    name                                           = string
+    resource_group_name                            = string
+    servicebus_namespace                           = string
+    stream_analytics_job_name                      = string
+    authentication_mode                            = optional(string) # Default: "ConnectionString"
+    partition_key                                  = optional(string)
+    property_columns                               = optional(list(string))
+    shared_access_policy_key                       = optional(string)
+    shared_access_policy_key_key_vault_id          = optional(string)
+    shared_access_policy_key_key_vault_secret_name = optional(string)
+    shared_access_policy_name                      = optional(string)
     serialization = object({
       encoding        = optional(string)
       field_delimiter = optional(string)
